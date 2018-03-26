@@ -119,8 +119,6 @@ func newApp() *cli.App {
 		if c.IsSet(strings.Split(ignoreInterrupts.Name, ",")[0]) {
 			signal.Ignore(os.Interrupt)
 		}
-
-		log.Print("reading stdin...")
 		if err := humanlog.Scanner(os.Stdin, colorable.NewColorableStdout(), opts); err != nil {
 			log.Fatalf("scanning caught an error: %v", err)
 		}
